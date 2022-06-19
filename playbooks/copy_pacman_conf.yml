@@ -1,0 +1,12 @@
+---
+
+- hosts: arch
+  tasks:
+    - name: Copy pacman.conf
+      ansible.builtin.copy: 
+        src: ~/ansible/files/pacman.conf
+        dest: /etc/
+    - name: Copy pacman mirrorlist
+      ansible.builtin.copy:
+        src: ~/ansible/files/pacman.d/mirrorlist
+        dest: /etc/pacman.d/

@@ -1,0 +1,12 @@
+- hosts: all
+  become: yes
+  gather_facts: false
+  tasks:
+  - name: Check for Python
+    raw: test -e /usr/bin/python
+    changed_when: false
+    failed_when: false
+    register: check_python
+  - name: Install python on target node
+    raw: dnf -y install python3
+    when: check_python.rc != 0

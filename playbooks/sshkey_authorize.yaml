@@ -1,0 +1,14 @@
+---
+- hosts: all
+  tasks:
+    - name: Copy local_sshkey
+      ansible.builtin.copy:
+        src: ~/.ssh/local_sshkey
+        dest: ~/.ssh/
+- hosts: all
+  tasks:
+    - name: Make local_sshkey authorized
+      ansible.posix.authorized_key:
+        user: franta
+        state: present
+        key: "{{ lookup('file', '/home/franta/.ssh/local_sshkey.pub') }}"
