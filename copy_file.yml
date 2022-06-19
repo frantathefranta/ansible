@@ -1,0 +1,8 @@
+---
+
+- hosts: all
+  tasks:
+    - name: Copy local_sshkey
+      ansible.builtin.copy: 
+        src: ~/.ssh/local_sshkey 
+        dest: ~/.ssh/

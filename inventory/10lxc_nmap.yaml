@@ -1,0 +1,5 @@
+plugin: community.general.nmap
+sudo: true
+address: 10.0.30.0/24
+exclude: 10.0.30.1
+

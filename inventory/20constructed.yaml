@@ -1,0 +1,5 @@
+plugin: constructed
+strict: False
+groups:
+  arch: "'arch' in inventory_hostname"
+  rocky: "'rocky' in inventory_hostname"
